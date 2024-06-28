@@ -5,11 +5,21 @@ import { fetchUsers } from "../Redux/Store";
 const UsersList = () => {
   const dispatch = useDispatch();
 
+  const { data, isLoading, error } = useSelector((state) => state.users);
+
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
 
-  return "Loading....";
+  if (isLoading) {
+    return <div>Loading.......</div>;
+  }
+
+  if (error) {
+    return <div>Error......</div>;
+  }
+
+  return <div>{data.length}</div>;
 };
 
 export default UsersList;
