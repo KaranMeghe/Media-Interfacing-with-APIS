@@ -1,2 +1,3 @@
 import UsersList from "./UsersList";
-export { UsersList };
+import Skeleton from "./Skeleton/Skeleton";
+export { UsersList, Skeleton };

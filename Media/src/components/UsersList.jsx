@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../Redux/Store";
+import { Skeleton } from "./index";
 
 const UsersList = () => {
   const dispatch = useDispatch();
@@ -12,14 +13,14 @@ const UsersList = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading.......</div>;
+    return <Skeleton times={8} className="h-10 w-full mt-10" />;
   }
 
   if (error) {
     return <div>Error......</div>;
   }
 
-  return <div>{data.length}</div>;
+  return <div>data</div>;
 };
 
 export default UsersList;
