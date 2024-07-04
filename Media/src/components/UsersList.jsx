@@ -6,6 +6,8 @@ import { Skeleton, Button } from "./index";
 const UsersList = () => {
   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
   const [loadingUsersError, setLoadingUsersErrors] = useState(null);
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [creatingUserError, setCreatingUserError] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -15,17 +17,8 @@ const UsersList = () => {
     setIsLoadingUsers(true);
     dispatch(fetchUsers())
       .unwrap()
-      .then(() => {
-        setIsLoadingUsers(false);
-      })
-      .catch((error) => {
-        setLoadingUsersErrors(error);
-        console.log(loadingUsersError);
-        setIsLoadingUsers(false);
-      })
-      .finally(() => {
-        setIsLoadingUsers(false);
-      });
+      .catch((error) => setLoadingUsersErrors(error))
+      .finally(() => setIsLoadingUsers(false));
   }, []);
 
   const dataCount = data.length;
@@ -49,14 +42,24 @@ const UsersList = () => {
   });
 
   const handleUserAdd = () => {
-    return dispatch(addUsers());
+    setIsCreatingUser(true);
+    dispatch(addUsers())
+      .unwrap()
+      .catch((error) => setCreatingUserError(error))
+      .finally(() => setIsCreatingUser(false));
   };
 
   return (
     <div>
       <div className="flex flex-row justify-between m-3">
         <h1 className="m-2 text-xl">Users</h1>
-        <Button onClick={handleUserAdd}>+ Add User</Button>
+        {isCreatingUser ? (
+          "Creating Users..."
+        ) : (
+          <Button onClick={handleUserAdd}>+ Add User</Button>
+        )}
+        {creatingUserError && "Error Creating User...."}
+        {console.log(creatingUserError)}
       </div>
       {renderedUsers}
     </div>
