@@ -14,7 +14,7 @@ const UsersList = () => {
     runFetchThunk();
   }, [runFetchThunk]);
 
-  const dataCount = data.length;
+  const dataCount = 10;
 
   if (isLoadingFetch) {
     return <Skeleton times={dataCount} className="h-10 w-full mt-10" />;
@@ -42,11 +42,11 @@ const UsersList = () => {
     <div>
       <div className="flex flex-row justify-between m-3">
         <h1 className="m-2 text-xl">Users</h1>
-        {isLoadingAdd ? (
-          "Creating Users..."
-        ) : (
-          <Button onClick={handleUserAdd}>+ Add User</Button>
-        )}
+
+        <Button loading={isLoadingAdd} onClick={handleUserAdd}>
+          + Add User
+        </Button>
+
         {errorAdd && "Error Creating User...."}
       </div>
       {renderedUsers}
