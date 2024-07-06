@@ -1,34 +1,27 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { fetchUsers, addUsers } from "../Redux/Store";
 import { Skeleton, Button } from "./index";
+import { useThunk } from "../hooks";
 
 const UsersList = () => {
-  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-  const [loadingUsersError, setLoadingUsersErrors] = useState(null);
-  const [isCreatingUser, setIsCreatingUser] = useState(false);
-  const [creatingUserError, setCreatingUserError] = useState(null);
-
-  const dispatch = useDispatch();
-
   const { data } = useSelector((state) => state.users);
 
+  const [isLoadingFetch, errorFetch, runFetchThunk] = useThunk(fetchUsers);
+  const [isLoadingAdd, errorAdd, runAddThunk] = useThunk(addUsers);
+
   useEffect(() => {
-    setIsLoadingUsers(true);
-    dispatch(fetchUsers())
-      .unwrap()
-      .catch((error) => setLoadingUsersErrors(error))
-      .finally(() => setIsLoadingUsers(false));
-  }, []);
+    runFetchThunk();
+  }, [runFetchThunk]);
 
   const dataCount = data.length;
 
-  if (isLoadingUsers) {
+  if (isLoadingFetch) {
     return <Skeleton times={dataCount} className="h-10 w-full mt-10" />;
   }
 
-  if (loadingUsersError) {
-    return <div>{loadingUsersError.message}</div>;
+  if (errorFetch) {
+    return <div>{errorFetch.message}</div>;
   }
 
   const renderedUsers = data.map((user) => {
@@ -42,24 +35,19 @@ const UsersList = () => {
   });
 
   const handleUserAdd = () => {
-    setIsCreatingUser(true);
-    dispatch(addUsers())
-      .unwrap()
-      .catch((error) => setCreatingUserError(error))
-      .finally(() => setIsCreatingUser(false));
+    runAddThunk();
   };
 
   return (
     <div>
       <div className="flex flex-row justify-between m-3">
         <h1 className="m-2 text-xl">Users</h1>
-        {isCreatingUser ? (
+        {isLoadingAdd ? (
           "Creating Users..."
         ) : (
           <Button onClick={handleUserAdd}>+ Add User</Button>
         )}
-        {creatingUserError && "Error Creating User...."}
-        {console.log(creatingUserError)}
+        {errorAdd && "Error Creating User...."}
       </div>
       {renderedUsers}
     </div>
