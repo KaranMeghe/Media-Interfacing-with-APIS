@@ -14,25 +14,22 @@ const UsersList = () => {
     runFetchThunk();
   }, [runFetchThunk]);
 
-  const dataCount = 10;
-
+  let content;
   if (isLoadingFetch) {
-    return <Skeleton times={dataCount} className="h-10 w-full mt-10" />;
-  }
-
-  if (errorFetch) {
-    return <div>{errorFetch.message}</div>;
-  }
-
-  const renderedUsers = data.map((user) => {
-    return (
-      <div key={user.id} className="mb-2 border rounded h-10 w-full mt-10">
-        <div className="flex p-2 justify-between items-center cursor-pointer">
-          {user.name}
+    content = <Skeleton times={10} className="h-10 w-full mt-10" />;
+  } else if (errorFetch) {
+    content = <div>{errorFetch.message}</div>;
+  } else {
+    content = data.map((user) => {
+      return (
+        <div key={user.id} className="mb-2 border rounded h-10 w-full mt-10">
+          <div className="flex p-2 justify-between items-center cursor-pointer">
+            {user.name}
+          </div>
         </div>
-      </div>
-    );
-  });
+      );
+    });
+  }
 
   const handleUserAdd = () => {
     runAddThunk();
@@ -40,7 +37,7 @@ const UsersList = () => {
 
   return (
     <div>
-      <div className="flex flex-row justify-between m-3">
+      <div className="flex flex-row justify-between items-center m-3">
         <h1 className="m-2 text-xl">Users</h1>
 
         <Button loading={isLoadingAdd} onClick={handleUserAdd}>
@@ -49,7 +46,7 @@ const UsersList = () => {
 
         {errorAdd && "Error Creating User...."}
       </div>
-      {renderedUsers}
+      {content}
     </div>
   );
 };
