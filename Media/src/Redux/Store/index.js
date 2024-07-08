@@ -9,3 +9,4 @@ export const store = configureStore({
 
 export * from "../Thunks/fetchUsers";
 export * from "../Thunks/addUsers";
+export * from "../Thunks/deleteUsers";

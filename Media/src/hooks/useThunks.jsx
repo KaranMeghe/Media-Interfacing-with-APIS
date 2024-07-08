@@ -7,13 +7,16 @@ function useThunk(thunk) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setIsError] = useState(null);
 
-  const runThunk = useCallback(() => {
-    setIsLoading(true);
-    dispatch(thunk())
-      .unwrap()
-      .catch((error) => setIsError(error))
-      .finally(() => setIsLoading(false));
-  }, [dispatch, thunk]);
+  const runThunk = useCallback(
+    (user) => {
+      setIsLoading(true);
+      dispatch(thunk(user))
+        .unwrap()
+        .catch((error) => setIsError(error))
+        .finally(() => setIsLoading(false));
+    },
+    [dispatch, thunk]
+  );
 
   return [isLoading, error, runThunk];
 }

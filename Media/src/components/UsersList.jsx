@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { fetchUsers, addUsers } from "../Redux/Store";
-import { Skeleton, Button } from "./index";
+import { fetchUsers, addUsers, deleteUsers } from "../Redux/Store";
+import { Skeleton, Button, UserListItem } from "./index";
 import { useThunk } from "../hooks";
 
 const UsersList = () => {
@@ -21,13 +21,7 @@ const UsersList = () => {
     content = <div>{errorFetch.message}</div>;
   } else {
     content = data.map((user) => {
-      return (
-        <div key={user.id} className="mb-2 border rounded h-10 w-full mt-10">
-          <div className="flex p-2 justify-between items-center cursor-pointer">
-            {user.name}
-          </div>
-        </div>
-      );
+      return <UserListItem key={user.id} user={user} />;
     });
   }
 
