@@ -57,3 +57,14 @@ const usersSlice = createSlice({
 });
 
 export const userReducer = usersSlice.reducer;
+
+let name = "Shawn";
+
+function greet() {
+  console.log(name);
+}
+
+greet(); // "Shawn"
+
+name = "karan";
+greet(); // "Karan"

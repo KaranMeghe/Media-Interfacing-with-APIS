@@ -1,5 +1,14 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "8e88",
+      "name": "Gail Nitzsche"
+    },
+    {
+      "id": "5f59",
+      "name": "Lee Legros"
+    }
+  ],
   "albums": [],
   "photos": []
 }
