@@ -9,6 +9,6 @@
       "name": "Mrs. Dustin Marquardt MD"
     }
   ],
-  "albums": [],
+  "albums": [{ "id": 1, "title": "World of war", "userId": "5f59" }],
   "photos": []
 }
