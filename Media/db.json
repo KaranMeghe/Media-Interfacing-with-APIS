@@ -1,14 +1,50 @@
 {
   "users": [
     {
-      "id": "5f59",
-      "name": "Lee Legros"
+      "id": "c41d",
+      "name": "Santiago Parisian"
     },
     {
-      "id": "7d76",
-      "name": "Mrs. Dustin Marquardt MD"
+      "id": "ef11",
+      "name": "Ginger Dare"
     }
   ],
-  "albums": [{ "id": 1, "title": "World of war", "userId": "5f59" }],
+  "albums": [
+    {
+      "id": "e81d",
+      "userId": "c41d",
+      "title": "Small Soft Cheese"
+    },
+    {
+      "id": "d7fb",
+      "userId": "c41d",
+      "title": "Rustic Fresh Bacon"
+    },
+    {
+      "id": "b134",
+      "userId": "c41d",
+      "title": "Intelligent Fresh Fish"
+    },
+    {
+      "id": "a18c",
+      "userId": "c41d",
+      "title": "Generic Rubber Pizza"
+    },
+    {
+      "id": "2b85",
+      "userId": "c41d",
+      "title": "Handcrafted Concrete Car"
+    },
+    {
+      "id": "e629",
+      "userId": "ef11",
+      "title": "Small Plastic Chicken"
+    },
+    {
+      "id": "374e",
+      "userId": "c41d",
+      "title": "Small Bronze Computer"
+    }
+  ],
   "photos": []
 }
