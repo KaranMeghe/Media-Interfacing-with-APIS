@@ -7,6 +7,14 @@
     {
       "id": "ef11",
       "name": "Ginger Dare"
+    },
+    {
+      "id": "8bf3",
+      "name": "Homer Bode"
+    },
+    {
+      "id": "9ecd",
+      "name": "Karl Stiedemann"
     }
   ],
   "albums": [
@@ -44,6 +52,21 @@
       "id": "374e",
       "userId": "c41d",
       "title": "Small Bronze Computer"
+    },
+    {
+      "id": "bb17",
+      "userId": "c41d",
+      "title": "Awesome Concrete Table"
+    },
+    {
+      "id": "ece2",
+      "userId": "c41d",
+      "title": "Bespoke Wooden Pizza"
+    },
+    {
+      "id": "5020",
+      "userId": "9ecd",
+      "title": "Refined Bronze Tuna"
     }
   ],
   "photos": []

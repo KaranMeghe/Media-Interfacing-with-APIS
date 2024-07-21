@@ -4,6 +4,7 @@ import Skeleton from "./Skeleton/Skeleton";
 import Button from "./Button/Button";
 import ExpandablePanel from "./Expandable panel/ExpandablePanel";
 import AlbumsList from "./Album/AlbumList";
+import AlbumListItem from "./Album/AlbumlListItem";
 export {
   UsersList,
   Skeleton,
@@ -11,4 +12,5 @@ export {
   UserListItem,
   ExpandablePanel,
   AlbumsList,
+  AlbumListItem,
 };
