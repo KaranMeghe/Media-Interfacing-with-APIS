@@ -2,7 +2,7 @@ import {
   useFetchAlbumsQuery,
   useAddAlbumMutation,
 } from "../../Redux/Store/index";
-import { Skeleton, ExpandablePanel, Button, AlbumListItem } from "../index";
+import { Skeleton, Button, AlbumListItem } from "../index";
 
 function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
