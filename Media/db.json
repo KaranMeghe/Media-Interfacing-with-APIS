@@ -26,5 +26,21 @@
       "title": "Recycled Granite Cheese"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "id": "1c20",
+      "albumId": "57ef",
+      "url": "https://loremflickr.com/150/150/abstract?lock=42252"
+    },
+    {
+      "id": "2872",
+      "albumId": "da89",
+      "url": "https://loremflickr.com/150/150/abstract?lock=4341"
+    },
+    {
+      "id": "0bf4",
+      "albumId": "da89",
+      "url": "https://loremflickr.com/150/150/abstract?lock=78665"
+    }
+  ]
 }
